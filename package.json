@@ -2,19 +2,22 @@
   "private": true,
   "author": "Magnesium- <yyong007@outlook.com>",
   "scripts": {
-    "dev": "max dev",
     "build": "max build",
+    "dev": "max dev",
     "format": "prettier --cache --write .",
-    "prepare": "husky install",
     "postinstall": "max setup",
+    "prepare": "husky install",
     "setup": "max setup",
     "start": "npm run dev"
   },
   "dependencies": {
+    "@ant-design/charts": "^1.4.2",
     "@ant-design/icons": "^5.2.5",
     "@ant-design/pro-components": "^2.6.12",
     "@umijs/max": "^4.0.75",
-    "antd": "^5.8.2"
+    "antd": "^5.8.2",
+    "react-fast-marquee": "^1.6.0",
+    "react-json-view": "^1.21.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.20",

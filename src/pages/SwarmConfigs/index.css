@@ -1,0 +1,11 @@
+.data-container {
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.data-container div {
+  display: flex;
+  align-items: center;
+}
