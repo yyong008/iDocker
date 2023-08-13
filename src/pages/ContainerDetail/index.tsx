@@ -19,7 +19,7 @@ const LayerList = ({ data }: { data: any }) => {
 };
 
 const Logs = (value: any) => {
-  return <ReactJson src={value.split()} />;
+  return <ReactJson src={value} />;
 };
 
 const tabs = ['Logs', 'Inspect', 'Terminal', 'Files', 'Stats'];
