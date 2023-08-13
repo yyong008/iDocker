@@ -178,10 +178,12 @@ export async function getContainerExec(
 /**获取容器日志流 */
 export async function getContainerLogs(
   id: string,
+  params: any,
   options?: { [key: string]: any },
 ) {
-  return request(`/api/containers/${id}/exec`, {
+  return request(`/api/containers/${id}/logs`, {
     method: 'GET',
+    params,
     ...(options || {}),
   });
 }
@@ -192,6 +194,17 @@ export async function getContainerHistory(
   options?: { [key: string]: any },
 ) {
   return request(`/api/containers/${id}/history`, {
+    method: 'GET',
+    ...(options || {}),
+  });
+}
+
+/**获取容器日志流 */
+export async function getContainerArchive(
+  id: string,
+  options?: { [key: string]: any },
+) {
+  return request(`/api/containers/${id}/archive`, {
     method: 'GET',
     ...(options || {}),
   });
