@@ -66,7 +66,6 @@ function Containers({ data }) {
       ellipsis: true,
       render: (_: unknown, record: { NetworkSettings: any }) => {
         const dd = record.NetworkSettings.Networks.docker_default;
-        console.log('dd', dd);
 
         return (
           <div className="data-container">
@@ -184,7 +183,6 @@ const VolumesDetail: React.FC = () => {
 
   const queryInfo = async () => {
     const res = await queryContainersList({ volume: id });
-    console.log(res);
     setData(res);
   };
 

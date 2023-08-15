@@ -150,13 +150,11 @@ const ContainerList: FC = () => {
           </ModalForm>,
         ]}
         request={async (...args) => {
-          console.log('args', args);
           const data = await queryVolumesList({
             name: args[0].ImageID,
             filters: JSON.stringify({ name: [args[0].ImageID] }),
           });
 
-          console.log('data', data);
           return {
             data: data?.Volumes.sort(
               (a: any, b: any) => b.CreatedAt - a.CreatedAt,

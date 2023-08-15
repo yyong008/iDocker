@@ -60,13 +60,11 @@ const HomePage: React.FC = () => {
 
   const queryInfo = async () => {
     const res = await getImageDetail(id);
-    console.log(res);
     setData(res);
   };
 
   const queryHistoryInfo = async () => {
     const res = await getImageHistory(id);
-    console.log('h', res);
     setHData(res);
   };
 

@@ -3,21 +3,24 @@ import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import type { FC } from 'react';
 
 // cores
+import { Link } from '@umijs/max';
 import { useRef } from 'react';
 
 // components:vendors
-import { PageContainer, ProTable } from '@ant-design/pro-components';
-import { Button, Space, Tag } from 'antd';
-
-// services
-import { queryImagesList } from '@/services/images/ImagesController';
-
 import {
   DeleteOutlined,
   FormOutlined,
   PlaySquareOutlined,
 } from '@ant-design/icons';
-import { Link } from '@umijs/max';
+import { PageContainer, ProTable } from '@ant-design/pro-components';
+import { Button, Space, Tag } from 'antd';
+
+// components
+import CreateContainerModel from '@/components/createContainer';
+
+// services
+import { queryImagesList } from '@/services/images/ImagesController';
+
 import './index.css';
 
 const columns: ProColumns<any, any>[] = [
@@ -107,11 +110,12 @@ const columns: ProColumns<any, any>[] = [
       const id = record.Id.slice(7);
       return (
         <Space>
-          <Button
-            type="text"
-            icon={<PlaySquareOutlined />}
-            shape="circle"
-          ></Button>
+          <CreateContainerModel
+            name={record.Id.slice(7)}
+            trigger={<PlaySquareOutlined />}
+            portStr=""
+            createContainer={() => {}}
+          />
           <Link to={`/images/${id}`}>
             <Button type="text" icon={<FormOutlined />} shape="circle"></Button>
           </Link>
@@ -146,7 +150,6 @@ const ContainerList: FC = () => {
         }}
         request={async () => {
           const data = await queryImagesList();
-          console.log('data', data);
           return {
             data: data,
             total: data.length,

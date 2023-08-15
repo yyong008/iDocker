@@ -40,7 +40,7 @@ export async function queryContainersList(
 
 /** 创建新容器 */
 export async function createContainer(
-  body?: API.UserInfoVO,
+  body?: any,
   options?: { [key: string]: any },
 ) {
   return request('/api/containers/create', {

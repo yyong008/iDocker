@@ -221,7 +221,6 @@ const ContainerList: FC = () => {
         ]}
         request={async () => {
           const data = await queryNetworksList();
-          console.log('data', data);
           return {
             data: data,
             total: data.length,

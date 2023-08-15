@@ -125,7 +125,6 @@ const ContainerList: FC = () => {
         ]}
         request={async () => {
           const data = await queryImagesList();
-          console.log('data', data);
           return {
             data: data,
             total: data.length,

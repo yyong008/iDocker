@@ -17,12 +17,14 @@ import {
   stopContainerById,
 } from '@/services/container/ContainerController';
 
+import ContainerStatusIcon from '@/components/ContainerStatus';
 import {
   DeleteOutlined,
   FormOutlined,
   PlaySquareOutlined,
   PoweroffOutlined,
 } from '@ant-design/icons';
+
 import './index.css';
 
 const ContainerList: FC = () => {
@@ -68,16 +70,16 @@ const ContainerList: FC = () => {
       title: '容器名',
       dataIndex: 'ImageID',
       ellipsis: true,
-      width: 150,
-      render: (
-        _: unknown,
-        record: { Id: string; Names: any[]; ImageID: any; Image: any },
-      ) => {
+      width: 200,
+      render: (_: unknown, record: { Names: any[]; State: string }) => {
         return (
-          <div>
-            {record.Names.map((n) => {
-              return <div key={n}>{n}</div>;
-            })}
+          <div style={{ display: 'flex' }}>
+            <ContainerStatusIcon status={record.State as StatusMapKeys} />
+            <div>
+              {record.Names.map((n) => {
+                return <div key={n}>{n}</div>;
+              })}
+            </div>
           </div>
         );
       },
@@ -224,7 +226,6 @@ const ContainerList: FC = () => {
           const data = await queryContainersList({
             all: true,
           });
-          console.log('data', data);
           return {
             data: data,
             total: data.length,

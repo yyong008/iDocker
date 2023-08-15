@@ -63,7 +63,6 @@ const NetworksDetail: React.FC = () => {
 
   const queryInfo = async () => {
     const res = await getNetworkDetail(id);
-    console.log(res);
     setData(res);
   };
 

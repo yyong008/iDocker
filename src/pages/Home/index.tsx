@@ -13,7 +13,6 @@ const HomePage: React.FC = () => {
 
   const queryInfo = async () => {
     const res = await getInfo();
-    console.log(res);
     setData(res);
   };
 
